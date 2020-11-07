@@ -37,7 +37,7 @@ upperLower = upper.concat(lower);
 charNumLower = character.concat(number, lower);
 charLowerUpper = character.concat(lower, upper);
 charNumUpper = character.concat(number, upper);
-NumLowerUpper = number.concat(lower, upper);
+numLowerUpper = number.concat(lower, upper);
 // 4 way combo
 charNumLowerUpper = character.concat(number, lower, upper);
 
@@ -46,25 +46,84 @@ charNumLowerUpper = character.concat(number, lower, upper);
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
 
   
+  // var passwordText = document.querySelector("#password");
+  // var password = generatePassword();
+  
 
-  passwordText.value = password;
+  // passwordText.value = password;
 
-}
-////////////////////////////////////////////////////////////////////////////////////
 
 // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
 
-// function writePassword()
 
-// the confirm variables/options. The users responses will be stored here.
-confirmNumber = confirm("Do you want the password to have numbers?");
-confirmCharacter = confirm("Do you want the password to have characters?");
-confirmUppercase = confirm("Do you want the password to have uppercase letters?");
-confirmLowercase = confirm("Do you want the password to have lowercase letters?");
-   
+////////////////////////////////////////////////////////////////////////////////////
+function writePassword(){
+
+
+
+
+    confirmNumber = confirm("Do you want the password to have numbers?");
+    confirmCharacter = confirm("Do you want the password to have characters?");
+    confirmUppercase = confirm("Do you want the password to have uppercase letters?");
+    confirmLowercase = confirm("Do you want the password to have lowercase letters?");
+
+
+// All possible ways the user can choose. ! In front of variable means false instead of true.
+    // chose none
+    if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
+      choices = alert("You have to choose at least one type");
+  }
+
+  // chooses all
+  else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
+      choices = charNumLowerUpper;
+  }
+  // chooses 3 ways
+  else if (confirmCharacter && confirmNumber && confirmUppercase) {
+      choices = charNumUpper;
+  }
+  else if (confirmCharacter && confirmNumber && confirmLowercase) {
+      choices = charNumLower;
+  }
+  else if (confirmCharacter && confirmLowercase && confirmUppercase) {
+      choices = charLowerUpper;
+  }
+  else if (confirmNumber && confirmLowercase && confirmUppercase) {
+      choices = numLowerUpper;
+  }
+  // chooses 2 ways
+  else if (confirmCharacter && confirmNumber) {
+      choices = charNum;
+  } 
+  else if (confirmCharacter && confirmLowercase) {
+      choices = charLower;
+  }
+  else if (confirmCharacter && confirmUppercase) {
+      choices = charUpper;
+  }
+  else if (confirmLowercase && confirmNumber) {
+      choices = lowerNum;
+  }
+  else if (confirmLowercase && confirmUppercase) {
+      choices = lowerUpper;
+  }
+  else if (confirmNumber && confirmUppercase) {
+      choices = numUpper;
+  }
+  // chose 1 kind
+  else if (confirmCharacter) {
+      choices = character;
+  }
+  else if (confirmNumber) {
+      choices = number;
+  }
+  else if (confirmUppercase) {
+    choices = upper;
+  }
+  else if (confirmLowercase) {
+      choices = lower;
+  }
+};
