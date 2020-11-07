@@ -8,7 +8,7 @@ var confirmLowercase;
     
 // variables - Options from the prompts
 // Special characters 
-character = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
+character = ["!@#$%^&*()_+|:<>?-=\;',./"];
 // Numbers
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // lower case
@@ -48,28 +48,30 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 
   
-  // var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector("#password");
   // var password = generatePassword();
   
 
   // passwordText.value = password;
 
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
 ////////////////////////////////////////////////////////////////////////////////////
+generateBtn.addEventListener("click", writePassword);
 function writePassword(){
 
+howMany = parseInt(prompt("How many characters would you like to use?"));
+if(!howMany){
+  alert("Please enter a number");
+}
+else if (howMany < 8 || howMany > 128) {
+  howMany = parseInt(prompt("You can only choose between 8 and 128"));
+}
 
-
-
+else{
     confirmNumber = confirm("Do you want the password to have numbers?");
     confirmCharacter = confirm("Do you want the password to have characters?");
     confirmUppercase = confirm("Do you want the password to have uppercase letters?");
     confirmLowercase = confirm("Do you want the password to have lowercase letters?");
-
+};
 
 // All possible ways the user can choose. ! In front of variable means false instead of true.
     // chose none
@@ -125,5 +127,15 @@ function writePassword(){
   }
   else if (confirmLowercase) {
       choices = lower;
-  }
+  
+};
+
+var password = [];
+
+for (var i = 0; i < howMany; i++) {
+  var pickChoices = choices[Math.floor(Math.random() * choices.length)];
+  password.push(pickChoices);
+}
+
+return alert (password);
 };
