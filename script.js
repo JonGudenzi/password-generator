@@ -46,7 +46,7 @@ var passwordText = document.querySelector("#password");
   
 generateBtn.addEventListener("click", writePassword);
 function writePassword(){
-
+// the (!howMany) means false instead of true. (This means the cancel button was clicked)
 howMany = parseInt(prompt("How many characters would you like to use?"));
 if(!howMany){
   alert("Please enter a number");
@@ -131,4 +131,5 @@ for (var i = 0; i < howMany; i++) {
 //My previous results were rendering a comma in between every character. I found a solution from this link.
 //https://stackoverflow.com/questions/12835621/removing-commas-from-javascript-array 
 return alert(password.join(""));
+
 };
