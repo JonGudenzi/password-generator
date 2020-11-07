@@ -1,2 +1,2 @@
-# passwork-generator
+# password-generator
 password generator with JavaScript
