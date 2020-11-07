@@ -8,7 +8,7 @@ var confirmLowercase;
     
 // variables - Options from the prompts
 // Special characters 
-character = ["!@#$%^&*()_+|:<>?-=\;',./"];
+character = ["!","@","#","$","%","^","&","*","(",")","+","=","?"];  
 // Numbers
 number = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // lower case
@@ -41,20 +41,9 @@ numLowerUpper = number.concat(lower, upper);
 // 4 way combo
 charNumLowerUpper = character.concat(number, lower, upper);
 
-///////////////////////////////////////////////////////////////////////////////////
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-
+var passwordText = document.querySelector("#password");
   
-  var passwordText = document.querySelector("#password");
-  // var password = generatePassword();
-  
-
-  // passwordText.value = password;
-
-////////////////////////////////////////////////////////////////////////////////////
 generateBtn.addEventListener("click", writePassword);
 function writePassword(){
 
@@ -130,6 +119,8 @@ else{
   
 };
 
+// the password variable with empty [] stores the array count that is used the the for loop
+//the for loop is looping the howMany responce that the user entered.
 var password = [];
 
 for (var i = 0; i < howMany; i++) {
@@ -137,5 +128,7 @@ for (var i = 0; i < howMany; i++) {
   password.push(pickChoices);
 }
 
-return alert (password);
+//My previous results were rendering a comma in between every character. I found a solution from this link.
+//https://stackoverflow.com/questions/12835621/removing-commas-from-javascript-array 
+return alert(password.join(""));
 };
