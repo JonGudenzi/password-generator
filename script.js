@@ -1,4 +1,3 @@
-
 // confirming (option) variables
 var howMany;
 var confirmNumber;
