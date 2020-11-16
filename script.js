@@ -56,6 +56,10 @@ else if (howMany < 8 || howMany > 128)  {
   howMany = parseInt(prompt("You can only choose between 8 and 128"));
 }
 
+if (howMany < 8 || howMany > 128){
+    writePassword();
+}
+
 else{
     confirmNumber = confirm("Do you want the password to have numbers?");
     confirmCharacter = confirm("Do you want the password to have characters?");
