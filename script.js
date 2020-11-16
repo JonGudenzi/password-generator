@@ -65,7 +65,7 @@ else{
 // All possible ways the user can choose. ! In front of variable means false instead of true.
     // chose none
     if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
-      choices = alert("You have to choose at least one type");
+      choices = alert("You have chosen poorly");
   }
 
   // chooses all
