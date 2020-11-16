@@ -5,6 +5,7 @@ var confirmNumber;
 var confirmCharacter;
 var confirmUppercase;
 var confirmLowercase;
+var choices = [];
     
 // variables - Options from the prompts
 // Special characters 
@@ -43,7 +44,8 @@ charNumLowerUpper = character.concat(number, lower, upper);
 
 var generateBtn = document.querySelector("#generate");
 var passwordText = document.querySelector("#password");
-  
+ 
+
 generateBtn.addEventListener("click", writePassword);
 function writePassword(){
 // the (!howMany) means false instead of true. (This means the cancel button was clicked)
@@ -51,7 +53,7 @@ howMany = parseInt(prompt("How many characters would you like to use?"));
 if(!howMany){
   alert("Please enter a number");
 }
-else if (howMany < 8 || howMany > 128) {
+else if (howMany < 8 || howMany > 128)  {
   howMany = parseInt(prompt("You can only choose between 8 and 128"));
 }
 
@@ -64,12 +66,12 @@ else{
 
 // All possible ways the user can choose. ! In front of variable means false instead of true.
     // chose none
-    if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
-      choices = alert("You have to choose at least one type");
-  }
+//     if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
+//     alert("You have chosen poorly");
+//   }
 
   // chooses all
-  else if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
+   if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
       choices = charNumLowerUpper;
   }
   // chooses 3 ways
@@ -130,6 +132,15 @@ for (var i = 0; i < howMany; i++) {
 
 //My previous results were rendering a comma in between every character. I found a solution from this link.
 //https://stackoverflow.com/questions/12835621/removing-commas-from-javascript-array 
-return alert(password.join(""));
 
+
+
+var pw = (password.join(""));
+UserInput(pw);
+return pw;
+
+}
+
+function UserInput(pw){
+document.getElementById("password").textContent = pw;
 };
