@@ -69,9 +69,9 @@ else{
 
 // All possible ways the user can choose. ! In front of variable means false instead of true.
     // chose none
-//     if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
-//     alert("You have chosen poorly");
-//   }
+    if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
+    writePassword();
+  }
 
   // chooses all
    if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
