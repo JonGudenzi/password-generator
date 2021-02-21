@@ -69,9 +69,9 @@ else{
 
 // All possible ways the user can choose. ! In front of variable means false instead of true.
     // chose none
-//     if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
-//     alert("You have chosen poorly");
-//   }
+    if (!confirmCharacter && !confirmNumber && !confirmUppercase && !confirmLowercase) {
+    writePassword();
+  }
 
   // chooses all
    if (confirmCharacter && confirmNumber && confirmUppercase && confirmLowercase) {
@@ -109,7 +109,7 @@ else{
   else if (confirmNumber && confirmUppercase) {
       choices = numUpper;
   }
-  // chose 1 kind
+  // chooses 1 way
   else if (confirmCharacter) {
       choices = character;
   }
@@ -132,11 +132,6 @@ for (var i = 0; i < howMany; i++) {
   var pickChoices = choices[Math.floor(Math.random() * choices.length)];
   password.push(pickChoices);
 }
-
-//My previous results were rendering a comma in between every character. I found a solution from this link.
-//https://stackoverflow.com/questions/12835621/removing-commas-from-javascript-array 
-
-
 
 var pw = (password.join(""));
 UserInput(pw);
