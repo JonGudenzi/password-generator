@@ -17,7 +17,7 @@ The options the user has to choose from are listed:
   - Should the password include lowercase letters
   - Should the password include uppercase letters
 
-  These questions will apear when the user clicks the generate password button.
+  These questions will appear when the user clicks the generate password button.
   <br>
   <br>
   <img src="images\button.PNG" height = "150px" width = "450px">
